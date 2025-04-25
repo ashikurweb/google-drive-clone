@@ -1,6 +1,6 @@
 <script setup>
-  import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-  import { ChevronDownIcon } from '@heroicons/vue/20/solid'
+  import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue';
+  import { ChevronDownIcon } from '@heroicons/vue/20/solid';
   import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 </script>
 
@@ -37,8 +37,9 @@
                 </ResponsiveNavLink>
             </MenuItem>
             <MenuItem v-slot="{ active }">
-                <ResponsiveNavLink :href="route('logout')"
+                <ResponsiveNavLink :href="route('logout')" method="post"
                                    :class="[active ? 'bg-gray-100 text-gray-700' : 'text-gray-700', 'block px-4 py-2 text-sm']">
+                                   
                     Log Out
                 </ResponsiveNavLink>
             </MenuItem>
@@ -47,6 +48,3 @@
     </transition>
     </Menu>
 </template>
-  
-  
-  
