@@ -20,7 +20,7 @@ import NavLink from "@/Components/NavLink.vue";
         <div class="px-3">
             <CreateNewDropdown />
 
-            <div class="px-3">
+            <div class="px-3 py-5">
                 <NavLink href="" :active="true">My Files</NavLink>
                 <NavLink href="">Shared with me</NavLink>
                 <NavLink href="">Shared by me</NavLink>
