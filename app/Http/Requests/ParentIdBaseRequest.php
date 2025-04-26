@@ -36,7 +36,7 @@ class ParentIdBaseRequest extends FormRequest
                 Rule::exists(File::class, 'id')
                 ->where(function(Builder $query){
                     return $query
-                        ->where('is_folder', '=' ,1)
+                        ->where('is_folder', '=', 1)
                         ->where('created_by', '=', Auth::id());
                 }) 
             ]

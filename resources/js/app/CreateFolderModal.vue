@@ -29,12 +29,14 @@
 
                 // Show success notification
             },
-            onError: () => folderNameInput.value.focus(),
+            onError: () => {
+                folderNameInput.value.focus();
+            },
         });
     }
 
     function closeModal () {
-        emit('update:modelValue');
+        emit('update:modelValue', false);
         form.clearErrors();
         form.reset();
     }

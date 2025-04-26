@@ -16,12 +16,12 @@ class StoreFolderRequest extends ParentIdBaseRequest
      */
     public function rules(): array
     {
-        return array_merge(parent::rules(), 
+        return array_merge(parent::rules(),
             [
                 'name' => [
                     'required',
                     Rule::unique(File::class, 'name')
-                        ->where('created_at', Auth::id())
+                        ->where('created_by', Auth::id())
                         ->where('parent_id', $this->parent_id)
                         ->whereNull('deleted_at')
                 ]
@@ -32,7 +32,7 @@ class StoreFolderRequest extends ParentIdBaseRequest
     public function messages()
     {
         return [
-            'name.unique' => 'Folder: ":input" already exists',
+            'name.unique' => 'Folder ":input" already exists'
         ];
     }
 }
