@@ -11,9 +11,18 @@ use App\Http\Resources\FileResource;
 
 class FileController extends Controller
 {
-    public function myFiles()
+    public function myFiles(string $folder = null )  
     {
-        $folder = $this->getRoot();
+        if ( $folder ) {
+            $folder = File::query()->where('created_by', Auth::id())
+                ->where('path', $folder)
+                ->firstOrFail();
+        }
+
+        if ( !$folder ) {
+            $folder = $this->getRoot();
+        }
+
         $files = File::query()
                     ->where('parent_id', $folder->id)
                     ->where('created_by', Auth::id())
